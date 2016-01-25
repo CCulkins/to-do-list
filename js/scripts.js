@@ -11,8 +11,9 @@ $(document).ready(function() {
     var inputPlace = $("input#new-place").val();
     var inputDeadline = $("input#new-deadline").val();
     var newTask = new Task(inputTask, inputPlace, inputDeadline);
+    var newRow = "<tr><td><input type='checkbox'></td><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td><td class='up'>&#x21E7;</td><td class='down'>&#x21E9;</td></tr>"
 
-    $("#incompleteTasks tbody").append("<tr><td><input type='checkbox'></td><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
+    $("#incompleteTasks tbody").append(newRow);
 
     $("input#new-task").val("");
     $("input#new-place").val("");
@@ -28,6 +29,25 @@ $(document).ready(function() {
         $('#incompleteTasks tbody').prepend(checkedTask);
         $('#completedTasks tbody').remove(checkedTask);
       }
+
+    });
+
+    $('.up, .down').click(function() {
+      // debugger;
+      var selectedRow = $(this).closest("tr")
+      // , $reindex_start;
+
+      if ($(this).is('.up')) {
+        selectedRow.insertBefore(selectedRow.prev("tr"));
+        // $reindex_start=selectedRow;
+      } else {
+        selectedRow.insertAfter(selectedRow.next("tr"));
+        // $reindex_start=selectedRow.next();
+      }
+      // var index= $reindex_start.index();
+      // $reindex_start.nextAll().andSelf().each(function(i){
+      //   $(this).find('.form-label[id^="index"]').attr( 'id', 'index'+  index+i  );
+      // });
 
     });
   });
