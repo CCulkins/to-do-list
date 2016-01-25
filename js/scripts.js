@@ -14,5 +14,8 @@ $(document).ready(function() {
 
     $("tbody").append("<tr><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
 
+    $("input#new-task").val("");
+    $("input#new-place").val("");
+    $("input#new-deadline").val("");
   });
 });
