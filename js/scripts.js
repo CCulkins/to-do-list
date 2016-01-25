@@ -34,20 +34,19 @@ $(document).ready(function() {
 
     $('.up, .down').click(function() {
       // debugger;
-      var selectedRow = $(this).closest("tr")
-      // , $reindex_start;
+      var selectedRow = $(this).parents('tr:first'), $reindex_start;
 
       if ($(this).is('.up')) {
-        selectedRow.insertBefore(selectedRow.prev("tr"));
-        // $reindex_start=selectedRow;
+        selectedRow.insertBefore(selectedRow.prev());
+        $reindex_start=selectedRow;
       } else {
-        selectedRow.insertAfter(selectedRow.next("tr"));
-        // $reindex_start=selectedRow.next();
+        $reindex_start=selectedRow.next();
+        selectedRow.insertAfter($reindex_start);
       }
-      // var index= $reindex_start.index();
-      // $reindex_start.nextAll().andSelf().each(function(i){
-      //   $(this).find('.form-label[id^="index"]').attr( 'id', 'index'+  index+i  );
-      // });
+      var index = $reindex_start.index();
+      $reindex_start.nextAll().andSelf().each(function(i){
+        $(this).attr(index+i);
+      });
 
     });
   });
