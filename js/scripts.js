@@ -12,10 +12,17 @@ $(document).ready(function() {
     var inputDeadline = $("input#new-deadline").val();
     var newTask = new Task(inputTask, inputPlace, inputDeadline);
 
-    $("#incompleteTasks tbody").append("<tr><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
+    $("#incompleteTasks tbody").append("<tr><td><input type='checkbox'></td><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
 
     $("input#new-task").val("");
     $("input#new-place").val("");
     $("input#new-deadline").val("");
+
+    $('input[type=checkbox]').click(function() {
+      var checkedTask = $(this).closest("tr");
+      $('#completedTasks tbody').append(checkedTask);
+      $('#incompleteTasks tbody').remove(checkedTask);
+
+    });
   });
 });
