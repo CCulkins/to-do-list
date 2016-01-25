@@ -12,7 +12,7 @@ $(document).ready(function() {
     var inputDeadline = $("input#new-deadline").val();
     var newTask = new Task(inputTask, inputPlace, inputDeadline);
 
-    $("tbody").append("<tr><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
+    $("#incompleteTasks tbody").append("<tr><td class='task'>" + newTask.task + "</td><td class='place'>" + newTask.place + "</td><td class='deadline'>" + newTask.deadline + "</td></tr>")
 
     $("input#new-task").val("");
     $("input#new-place").val("");

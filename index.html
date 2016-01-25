@@ -12,7 +12,6 @@
   <body>
     <div class="container">
       <div class="row">
-
         <div class="col-md-6">
           <h2>Add a task</h2>
           <form id="add-task">
@@ -36,7 +35,8 @@
         </div>
 
         <div class="col-md-6">
-          <table class="table table-striped">
+          <h2>To do list:</h2>
+          <table id="incompleteTasks" class="table table-striped">
             <thead>
               <tr>
                 <th>Task</th>
@@ -45,11 +45,27 @@
               </tr>
             </thead>
             <tbody>
-
             </tbody>
           </table>
         </div>
+      </div>
 
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Completed Tasks:</h2>
+          <table id="completedTasks" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Place</th>
+                <th>Deadline</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
 
