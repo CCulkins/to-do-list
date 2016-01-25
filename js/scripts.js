@@ -20,8 +20,14 @@ $(document).ready(function() {
 
     $('input[type=checkbox]').click(function() {
       var checkedTask = $(this).closest("tr");
-      $('#completedTasks tbody').append(checkedTask);
-      $('#incompleteTasks tbody').remove(checkedTask);
+
+      if ($(this).is(":checked")) {
+        $('#completedTasks tbody').append(checkedTask);
+        $('#incompleteTasks tbody').remove(checkedTask);
+      } else {
+        $('#incompleteTasks tbody').prepend(checkedTask);
+        $('#completedTasks tbody').remove(checkedTask);
+      }
 
     });
   });
