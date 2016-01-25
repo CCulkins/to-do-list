@@ -4,7 +4,7 @@ function Task(task, place, deadline) {
   this.deadline = deadline;
 }
 $(document).ready(function() {
-  $("form#new-task").submit(function(event) {
+  $("form#add-task").submit(function(event) {
     event.preventDefault();
 
     var inputTask = $("input#new-task").val();
